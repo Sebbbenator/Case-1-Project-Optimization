@@ -1,11 +1,11 @@
 import { fetchFromSupabase, sendToSupabase } from "../lib/supabaseClient";
 
 export async function getAll() {
-  return fetchFromSupabase("/events?order=date.asc");
+  return fetchFromSupabase("/events?select=*,venue:venues(*)&order=date.asc");
 }
 
 export async function getById(id) {
-  const events = await fetchFromSupabase(`/events?id=eq.${id}`);
+  const events = await fetchFromSupabase(`/events?select=*,venue:venues(*)&id=eq.${id}`);
   return events[0] ?? null;
 }
 
