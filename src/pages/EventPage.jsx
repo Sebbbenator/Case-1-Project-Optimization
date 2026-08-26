@@ -16,6 +16,7 @@ export default function EventPage() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitErrorMessage, setSubmitErrorMessage] = useState("");
+  const [validationError, setValidationError] = useState("");
 
   useEffect(() => {
     async function loadEvent() {
@@ -43,13 +44,23 @@ export default function EventPage() {
 
   async function handleSubmit(eventSubmit) {
     eventSubmit.preventDefault();
+
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+
+    if (!trimmedName || !trimmedEmail) {
+      setValidationError("Udfyld venligst navn og e-mail.");
+      return;
+    }
+
+    setValidationError("");
     setIsSubmitting(true);
     setSubmitErrorMessage("");
 
     try {
       await registrationsService.create({
-        name,
-        email,
+        name: trimmedName,
+        email: trimmedEmail,
         status: "Ny",
         eventTitle: event.title,
         eventDate: event.date,
@@ -128,14 +139,17 @@ export default function EventPage() {
           <form onSubmit={handleSubmit}>
             <label>
               Navn
-              <input value={name} onChange={(inputEvent) => setName(inputEvent.target.value)} />
+              <input value={name} onChange={(inputEvent) => setName(inputEvent.target.value)} required />
             </label>
             <span>E-mail</span>
             <input
+              type="email"
               value={email}
               onChange={(inputEvent) => setEmail(inputEvent.target.value)}
               placeholder="dig@example.com"
+              required
             />
+            {validationError && <p className="form-message form-message-error">{validationError}</p>}
             {submitErrorMessage && <p className="form-message form-message-error">{submitErrorMessage}</p>}
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Sender..." : "Tilmeld mig"}
