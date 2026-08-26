@@ -6,13 +6,22 @@ const headers = {
 
 export async function fetchFromSupabase(path) {
   const response = await fetch(`${SUPABASE_URL}${path}`, { headers });
+
+  if (!response.ok) {
+    throw new Error("Kunne ikke hente data.");
+  }
+
   return response.json();
 }
 
 export async function sendToSupabase(path, method, body) {
-  await fetch(`${SUPABASE_URL}${path}`, {
+  const response = await fetch(`${SUPABASE_URL}${path}`, {
     headers,
     method,
     body: JSON.stringify(body)
   });
+
+  if (!response.ok) {
+    throw new Error("Kunne ikke gemme data.");
+  }
 }
