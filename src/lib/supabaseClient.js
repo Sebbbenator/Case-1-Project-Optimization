@@ -8,3 +8,11 @@ export async function fetchFromSupabase(path) {
   const response = await fetch(`${SUPABASE_URL}${path}`, { headers });
   return response.json();
 }
+
+export async function sendToSupabase(path, method, body) {
+  await fetch(`${SUPABASE_URL}${path}`, {
+    headers,
+    method,
+    body: JSON.stringify(body)
+  });
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { fetchFromSupabase } from "../lib/supabaseClient";
+import * as eventsService from "../services/eventsService";
+import { formatEventDate } from "../utils/formatDate";
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
@@ -8,12 +9,12 @@ export default function HomePage() {
   const [category, setCategory] = useState("Alle");
 
   useEffect(() => {
-    async function getEvents() {
-      const data = await fetchFromSupabase("/events?order=date.asc");
+    async function loadEvents() {
+      const data = await eventsService.getAll();
       setEvents(data);
     }
 
-    getEvents();
+    loadEvents();
   }, []);
 
   const categories = ["Alle", ...new Set(events.map((event) => event.category))];
@@ -25,17 +26,6 @@ export default function HomePage() {
 
     return matchesSearch && matchesCategory;
   });
-
-  function formatEventDate(eventDate) {
-    const date = new Date(eventDate);
-    const formattedDate = date.toLocaleDateString("da-DK", {
-      weekday: "long",
-      day: "numeric",
-      month: "long"
-    });
-
-    return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
-  }
 
   return (
     <>

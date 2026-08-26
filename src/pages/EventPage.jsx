@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
-import { fetchFromSupabase } from "../lib/supabaseClient";
+import * as eventsService from "../services/eventsService";
+import * as registrationsService from "../services/registrationsService";
+import { formatEventDateTime } from "../utils/formatDate";
 
 export default function EventPage() {
   const { eventId } = useParams();
@@ -9,24 +11,33 @@ export default function EventPage() {
   const [email, setEmail] = useState("");
 
   useEffect(() => {
-    async function getEvent() {
-      const data = await fetchFromSupabase(`/events?id=eq.${eventId}`);
-      setEvent(data[0]);
+    async function loadEvent() {
+      const data = await eventsService.getById(eventId);
+      setEvent(data);
     }
 
-    getEvent();
+    loadEvent();
   }, [eventId]);
 
   async function handleSubmit(eventSubmit) {
     eventSubmit.preventDefault();
-    console.log({ name, email, event: event.title });
+
+    await registrationsService.create({
+      name,
+      email,
+      status: "Ny",
+      eventTitle: event.title,
+      eventDate: event.date,
+      eventLocation: event.venueName
+    });
+
+    setName("");
+    setEmail("");
   }
 
   if (!event) {
     return null;
   }
-
-  const date = new Date(event.date);
 
   return (
     <>
@@ -44,8 +55,7 @@ export default function EventPage() {
             <div className="detail-list">
               <p>
                 <strong>Dato</strong>
-                {date.toLocaleDateString("da-DK", { weekday: "long", day: "numeric", month: "long" })} kl.{" "}
-                {date.toLocaleTimeString("da-DK", { hour: "2-digit", minute: "2-digit" })}
+                {formatEventDateTime(event.date)}
               </p>
               <p>
                 <strong>Sted</strong>

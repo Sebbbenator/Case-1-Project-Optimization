@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
-import { fetchFromSupabase } from "../lib/supabaseClient";
+import * as registrationsService from "../services/registrationsService";
+import { formatShortDate } from "../utils/formatDate";
 
 export default function RegistrationsPage() {
   const [registrations, setRegistrations] = useState([]);
   const [registrationCount, setRegistrationCount] = useState(0);
 
   useEffect(() => {
-    async function getRegistrations() {
-      const data = await fetchFromSupabase("/registrations?order=createdAt.desc");
+    async function loadRegistrations() {
+      const data = await registrationsService.getAll();
       setRegistrations(data);
       setRegistrationCount(data.length);
     }
 
-    getRegistrations();
+    loadRegistrations();
   }, []);
 
   return (
@@ -38,7 +39,7 @@ export default function RegistrationsPage() {
                 <small>{registration.email}</small>
               </div>
               <span>{registration.eventTitle}</span>
-              <span>{new Date(registration.eventDate).toLocaleDateString("da-DK")}</span>
+              <span>{formatShortDate(registration.eventDate)}</span>
               <span className="status">{registration.status}</span>
             </div>
           ))}
