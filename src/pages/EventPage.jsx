@@ -17,6 +17,7 @@ export default function EventPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitErrorMessage, setSubmitErrorMessage] = useState("");
   const [validationError, setValidationError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     async function loadEvent() {
@@ -48,6 +49,8 @@ export default function EventPage() {
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
 
+    setSuccessMessage("");
+
     if (!trimmedName || !trimmedEmail) {
       setValidationError("Udfyld venligst navn og e-mail.");
       return;
@@ -69,6 +72,7 @@ export default function EventPage() {
 
       setName("");
       setEmail("");
+      setSuccessMessage("Tak! Din tilmelding er modtaget.");
     } catch (error) {
       setSubmitErrorMessage(error.message || "Der opstod en fejl under tilmeldingen.");
     } finally {
@@ -151,6 +155,7 @@ export default function EventPage() {
             />
             {validationError && <p className="form-message form-message-error">{validationError}</p>}
             {submitErrorMessage && <p className="form-message form-message-error">{submitErrorMessage}</p>}
+            {successMessage && <p className="form-message form-message-success">{successMessage}</p>}
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Sender..." : "Tilmeld mig"}
             </button>
