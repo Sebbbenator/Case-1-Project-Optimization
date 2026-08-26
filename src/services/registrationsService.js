@@ -1,11 +1,19 @@
 import { fetchFromSupabase, sendToSupabase } from "../lib/supabaseClient";
+import { supabaseAuth } from "../lib/supabaseAuthClient";
+
+async function getAuthHeaders() {
+  const { data } = await supabaseAuth.auth.getSession();
+  return data.session ? { Authorization: `Bearer ${data.session.access_token}` } : {};
+}
 
 export async function getAll() {
-  return fetchFromSupabase("/registrations?order=createdAt.desc");
+  const authHeaders = await getAuthHeaders();
+  return fetchFromSupabase("/registrations?order=createdAt.desc", authHeaders);
 }
 
 export async function getById(id) {
-  const registrations = await fetchFromSupabase(`/registrations?id=eq.${id}`);
+  const authHeaders = await getAuthHeaders();
+  const registrations = await fetchFromSupabase(`/registrations?id=eq.${id}`, authHeaders);
   return registrations[0] ?? null;
 }
 

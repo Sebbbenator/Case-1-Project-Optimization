@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import * as registrationsService from "../services/registrationsService";
 import { formatShortDate } from "../utils/formatDate";
+import { supabaseAuth } from "../lib/supabaseAuthClient";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
 
 export default function RegistrationsPage() {
+  const navigate = useNavigate();
   const [registrations, setRegistrations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -27,12 +30,20 @@ export default function RegistrationsPage() {
     loadRegistrations();
   }, []);
 
+  async function handleLogout() {
+    await supabaseAuth.auth.signOut();
+    navigate("/login");
+  }
+
   return (
     <>
       <header className="admin-header">
         <p className="eyebrow">Internt overblik</p>
         <h1>Tilmeldinger</h1>
         <p>{registrations.length} tilmeldinger i alt</p>
+        <button type="button" className="logout-button" onClick={handleLogout}>
+          Log ud
+        </button>
       </header>
       <main>
         <StatusMessage>{isLoading && "Indlæser tilmeldinger..."}</StatusMessage>

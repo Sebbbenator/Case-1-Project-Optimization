@@ -4,8 +4,8 @@ const headers = {
   "Content-Type": "application/json"
 };
 
-export async function fetchFromSupabase(path) {
-  const response = await fetch(`${SUPABASE_URL}${path}`, { headers });
+export async function fetchFromSupabase(path, extraHeaders = {}) {
+  const response = await fetch(`${SUPABASE_URL}${path}`, { headers: { ...headers, ...extraHeaders } });
 
   if (!response.ok) {
     throw new Error("Kunne ikke hente data.");

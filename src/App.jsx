@@ -1,8 +1,10 @@
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
+import RequireAuth from "./components/RequireAuth";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import EventPage from "./pages/EventPage";
+import LoginPage from "./pages/LoginPage";
 import RegistrationsPage from "./pages/RegistrationsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -14,7 +16,15 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/events/:eventId" element={<EventPage />} />
         <Route path="/om" element={<AboutPage />} />
-        <Route path="/tilmeldinger" element={<RegistrationsPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/tilmeldinger"
+          element={
+            <RequireAuth>
+              <RegistrationsPage />
+            </RequireAuth>
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
