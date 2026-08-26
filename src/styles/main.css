@@ -280,6 +280,11 @@ select:focus {
   padding: 1rem;
 }
 
+.message-error {
+  background: rgba(255, 120, 90, 0.14);
+  color: var(--orange);
+}
+
 .page-header,
 .admin-header {
   background: var(--green);
@@ -626,6 +631,10 @@ select:focus {
   background: rgba(255, 255, 255, 0.55);
   margin: 0.5rem 0 0;
   padding: 0.8rem;
+}
+
+.form-message-error {
+  color: var(--orange);
 }
 
 .admin-header h1 {

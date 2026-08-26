@@ -4,17 +4,38 @@ import * as eventsService from "../services/eventsService";
 import * as registrationsService from "../services/registrationsService";
 import { formatEventDateTime } from "../utils/formatDate";
 import Footer from "../components/Footer";
+import NotFoundPage from "./NotFoundPage";
 
 export default function EventPage() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+  const [loadErrorMessage, setLoadErrorMessage] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitErrorMessage, setSubmitErrorMessage] = useState("");
 
   useEffect(() => {
     async function loadEvent() {
-      const data = await eventsService.getById(eventId);
-      setEvent(data);
+      setIsLoading(true);
+      setNotFound(false);
+      setLoadErrorMessage("");
+
+      try {
+        const data = await eventsService.getById(eventId);
+
+        if (!data) {
+          setNotFound(true);
+        } else {
+          setEvent(data);
+        }
+      } catch (error) {
+        setLoadErrorMessage(error.message || "Der opstod en fejl under indlæsning af eventet.");
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     loadEvent();
@@ -22,22 +43,38 @@ export default function EventPage() {
 
   async function handleSubmit(eventSubmit) {
     eventSubmit.preventDefault();
+    setIsSubmitting(true);
+    setSubmitErrorMessage("");
 
-    await registrationsService.create({
-      name,
-      email,
-      status: "Ny",
-      eventTitle: event.title,
-      eventDate: event.date,
-      eventLocation: event.venueName
-    });
+    try {
+      await registrationsService.create({
+        name,
+        email,
+        status: "Ny",
+        eventTitle: event.title,
+        eventDate: event.date,
+        eventLocation: event.venueName
+      });
 
-    setName("");
-    setEmail("");
+      setName("");
+      setEmail("");
+    } catch (error) {
+      setSubmitErrorMessage(error.message || "Der opstod en fejl under tilmeldingen.");
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
-  if (!event) {
-    return null;
+  if (isLoading) {
+    return <p className="message">Indlæser event...</p>;
+  }
+
+  if (notFound) {
+    return <NotFoundPage />;
+  }
+
+  if (loadErrorMessage) {
+    return <p className="message message-error">{loadErrorMessage}</p>;
   }
 
   return (
@@ -99,7 +136,10 @@ export default function EventPage() {
               onChange={(inputEvent) => setEmail(inputEvent.target.value)}
               placeholder="dig@example.com"
             />
-            <button type="submit">Tilmeld mig</button>
+            {submitErrorMessage && <p className="form-message form-message-error">{submitErrorMessage}</p>}
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Sender..." : "Tilmeld mig"}
+            </button>
           </form>
         </section>
       </main>
