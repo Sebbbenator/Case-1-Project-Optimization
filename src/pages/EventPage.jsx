@@ -4,6 +4,7 @@ import * as eventsService from "../services/eventsService";
 import * as registrationsService from "../services/registrationsService";
 import { formatEventDateTime } from "../utils/formatDate";
 import Footer from "../components/Footer";
+import StatusMessage from "../components/StatusMessage";
 import NotFoundPage from "./NotFoundPage";
 
 export default function EventPage() {
@@ -81,7 +82,7 @@ export default function EventPage() {
   }
 
   if (isLoading) {
-    return <p className="message">Indlæser event...</p>;
+    return <StatusMessage>Indlæser event...</StatusMessage>;
   }
 
   if (notFound) {
@@ -89,7 +90,7 @@ export default function EventPage() {
   }
 
   if (loadErrorMessage) {
-    return <p className="message message-error">{loadErrorMessage}</p>;
+    return <StatusMessage type="error">{loadErrorMessage}</StatusMessage>;
   }
 
   return (
@@ -153,9 +154,12 @@ export default function EventPage() {
               placeholder="dig@example.com"
               required
             />
-            {validationError && <p className="form-message form-message-error">{validationError}</p>}
-            {submitErrorMessage && <p className="form-message form-message-error">{submitErrorMessage}</p>}
-            {successMessage && <p className="form-message form-message-success">{successMessage}</p>}
+            <StatusMessage context="form" type="error">
+              {validationError || submitErrorMessage}
+            </StatusMessage>
+            <StatusMessage context="form" type="success">
+              {successMessage}
+            </StatusMessage>
             <button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Sender..." : "Tilmeld mig"}
             </button>
