@@ -47,6 +47,7 @@ export default function LoginPage() {
                 type="email"
                 value={email}
                 onChange={(inputEvent) => setEmail(inputEvent.target.value)}
+                autoComplete="email"
                 required
               />
             </label>
@@ -56,6 +57,7 @@ export default function LoginPage() {
                 type="password"
                 value={password}
                 onChange={(inputEvent) => setPassword(inputEvent.target.value)}
+                autoComplete="current-password"
                 required
               />
             </label>
