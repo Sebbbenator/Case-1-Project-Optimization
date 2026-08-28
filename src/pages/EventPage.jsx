@@ -83,7 +83,14 @@ export default function EventPage() {
   }
 
   if (isLoading) {
-    return <StatusMessage>Indlæser event...</StatusMessage>;
+    return (
+      <>
+        <main className="event-page">
+          <StatusMessage>Indlæser event...</StatusMessage>
+        </main>
+        <Footer />
+      </>
+    );
   }
 
   if (notFound) {
@@ -91,7 +98,14 @@ export default function EventPage() {
   }
 
   if (loadErrorMessage) {
-    return <StatusMessage type="error">{loadErrorMessage}</StatusMessage>;
+    return (
+      <>
+        <main className="event-page">
+          <StatusMessage type="error">{loadErrorMessage}</StatusMessage>
+        </main>
+        <Footer />
+      </>
+    );
   }
 
   return (
