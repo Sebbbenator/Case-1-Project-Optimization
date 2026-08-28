@@ -8,7 +8,9 @@ export default function Navbar() {
       </NavLink>
       <div className="nav-links">
         <NavLink to="/events">Events</NavLink>
+        <NavLink to="/steder">Steder</NavLink>
         <NavLink to="/om">Om Mellemrum</NavLink>
+        <NavLink to="/kontakt">Kontakt</NavLink>
       </div>
     </nav>
   );
