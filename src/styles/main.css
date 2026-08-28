@@ -1260,15 +1260,13 @@ select:focus {
 }
 
 .footer-brand {
+  align-items: center;
   color: white;
+  display: inline-flex;
   font-size: clamp(2rem, 4vw, 3.6rem);
   font-weight: 850;
   letter-spacing: -0.06em;
   line-height: 1;
-}
-
-.footer-brand span {
-  color: var(--lime);
 }
 
 .footer-heading {
@@ -1291,15 +1289,23 @@ select:focus {
   display: grid;
 }
 
-.footer-link-group a {
-  color: white;
-  padding: 0.28rem 0;
-  text-decoration-color: rgba(216, 255, 98, 0.35);
-  text-underline-offset: 0.25rem;
+.footer-link-row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
 }
 
-.footer-link-group a:hover {
-  color: var(--lime);
+.footer-link-row a {
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+}
+
+.footer-link-row a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .footer-bottom {
