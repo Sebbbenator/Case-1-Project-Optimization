@@ -18,40 +18,44 @@ export default function AboutPage() {
         </div>
       </header>
       <main className="about-page">
-        <section className="about-intro" aria-labelledby="about-intro-title">
-          <div>
-            <p className="eyebrow dark">Idéen</p>
-            <h2 id="about-intro-title">En enkel vej til det, der sker tæt på.</h2>
-          </div>
-          <div className="about-intro-copy">
-            <p className="lead">
-              Mellemrum samler koncerter, talks, workshops og fællesskaber, så du lettere kan opdage noget, du ikke
-              allerede kendte.
-            </p>
-            <p>
-              Vi gør det lokale kulturliv mere overskueligt og skaber en kort vej fra nysgerrighed til en plads i
-              kalenderen.
-            </p>
-          </div>
+        <section className="about-idea" aria-labelledby="about-idea-title">
+          <p className="eyebrow">Idéen</p>
+          <h2 id="about-idea-title">En enkel vej til det, der sker tæt på.</h2>
+          <p className="about-idea-lead">
+            Mellemrum samler koncerter, talks, workshops og fællesskaber, så du lettere kan opdage noget, du ikke
+            allerede kendte.
+          </p>
+          <p className="about-idea-sub">
+            Vi gør det lokale kulturliv mere overskueligt og skaber en kort vej fra nysgerrighed til en plads i
+            kalenderen.
+          </p>
         </section>
 
         <section className="about-audiences" aria-labelledby="about-audiences-title">
           <div className="about-section-heading">
-            <p className="eyebrow">Målgrupper</p>
+            <p className="eyebrow dark">Målgrupper</p>
             <h2 id="about-audiences-title">Mellemrum forbinder oplevelser med mennesker.</h2>
           </div>
           <div className="about-audience-split">
-            <article>
+            <article className="about-audience-card about-audience-card--dark">
               <span>Primær målgruppe</span>
               <h3>For dig, der vil opdage byen</h3>
-              <p>Find lokale oplevelser, få det vigtigste overblik, og tilmeld dig uden unødige omveje.</p>
-              <Link to="/events">Udforsk kommende events →</Link>
+              <p className="about-audience-copy">
+                Find lokale oplevelser, få det vigtigste overblik, og tilmeld dig uden unødige omveje.
+              </p>
+              <Link className="about-audience-cta" to="/events">
+                Udforsk kommende events →
+              </Link>
             </article>
-            <article>
+            <article className="about-audience-card about-audience-card--lime">
               <span>For arrangører</span>
               <h3>Gør oplevelsen synlig</h3>
-              <p>Del events med et nysgerrigt publikum, og få overblik over de mennesker, der tilmelder sig.</p>
-              <a href="mailto:hej@mellemrum.dk">Tal med os om et event →</a>
+              <p className="about-audience-copy">
+                Del events med et nysgerrigt publikum, og få overblik over de mennesker, der tilmelder sig.
+              </p>
+              <a className="about-audience-cta" href="mailto:hej@mellemrum.dk">
+                Tal med os om et event →
+              </a>
             </article>
           </div>
         </section>
@@ -63,17 +67,17 @@ export default function AboutPage() {
           </div>
           <ol className="about-flow-list">
             <li>
-              <span>01</span>
+              <span className="about-flow-badge">1</span>
               <strong>Arrangører deler events</strong>
               <p>Oplevelsen får en tydelig plads på platformen.</p>
             </li>
             <li>
-              <span>02</span>
+              <span className="about-flow-badge">2</span>
               <strong>Brugere opdager</strong>
               <p>Søgning, kategorier og kuratering gør det lettere at vælge.</p>
             </li>
             <li>
-              <span>03</span>
+              <span className="about-flow-badge">3</span>
               <strong>Brugere tilmelder sig</strong>
               <p>Fra interesse til tilmelding i ét sammenhængende flow.</p>
             </li>
@@ -88,7 +92,7 @@ export default function AboutPage() {
             />
             <figcaption>Byrum, arkitektur og nye perspektiver.</figcaption>
           </figure>
-          <div>
+          <div className="about-city-card">
             <p className="eyebrow dark">Aarhus tæt på</p>
             <h2 id="about-city-title">Find plads til noget nyt.</h2>
             <p>Mellemrum peger på steder, idéer og fællesskaber på tværs af byen — fra små scener til store tanker.</p>

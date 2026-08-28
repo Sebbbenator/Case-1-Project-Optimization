@@ -780,36 +780,52 @@ select:focus {
   margin: 0;
 }
 
-.about-page p:not(.eyebrow) {
+.about-page p:not(.eyebrow):not(.about-idea-lead):not(.about-idea-sub):not(.about-audience-copy) {
   color: #3a4740;
   font-size: 1.08rem;
   line-height: 1.7;
 }
 
-.about-intro {
-  display: grid;
-  gap: clamp(3rem, 7vw, 7rem);
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
-}
-
-.about-intro-copy {
-  border-top: 1px solid var(--line);
-  padding-top: 1.5rem;
-}
-
-.about-intro-copy p {
-  margin: 0 0 1.5rem;
-}
-
-.about-audiences {
+.about-idea {
   background: var(--green);
   border-radius: 18px;
   color: white;
-  overflow: hidden;
+  padding: clamp(2.5rem, 6vw, 4rem);
+}
+
+.about-idea .eyebrow {
+  background: var(--lime);
+  border-radius: 999px;
+  color: var(--green);
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+}
+
+.about-idea h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+  max-width: 18ch;
+}
+
+.about-idea-lead {
+  color: white;
+  font-size: clamp(1.3rem, 2.4vw, 1.8rem);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 1rem;
+  max-width: 44rem;
+}
+
+.about-idea-sub {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 44rem;
 }
 
 .about-section-heading {
-  padding: clamp(2rem, 5vw, 4.5rem);
+  margin-bottom: 1.75rem;
 }
 
 .about-audiences .about-section-heading h2 {
@@ -818,62 +834,75 @@ select:focus {
 
 .about-audience-split {
   display: grid;
+  gap: 1.5rem;
   grid-template-columns: 1fr 1fr;
 }
 
-.about-audience-split article {
+.about-audience-card {
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(23, 32, 29, 0.1);
   display: flex;
   flex-direction: column;
   min-height: 340px;
-  padding: clamp(2rem, 5vw, 4.5rem);
+  padding: clamp(2rem, 4vw, 2.75rem);
 }
 
-.about-audience-split article:first-child {
-  background: #225f50;
+.about-audience-card--dark {
+  background: var(--green);
+  color: white;
 }
 
-.about-audience-split article:last-child {
+.about-audience-card--lime {
   background: var(--lime);
   color: var(--green);
 }
 
-.about-audience-split span,
-.about-flow-list span {
+.about-audience-card span {
   font-size: 0.75rem;
   font-weight: 850;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.about-audience-split article:first-child span {
+.about-audience-card--dark span {
   color: var(--lime);
 }
 
-.about-audience-split article:last-child span {
+.about-audience-card--lime span {
   color: #355048;
 }
 
-.about-audience-split h3 {
+.about-audience-card h3 {
   margin-top: auto;
   max-width: 12ch;
 }
 
-.about-audience-split p {
+.about-audience-copy {
   color: inherit;
   margin: 1.25rem 0;
   max-width: 32rem;
 }
 
-.about-audience-split a,
-.about-cta {
-  align-self: flex-start;
-  font-weight: 800;
-  text-decoration-color: currentColor;
-  text-underline-offset: 0.35rem;
+.about-audience-card--lime .about-audience-copy {
+  color: #2c4a3f;
 }
 
-.about-flow-section .about-section-heading {
-  padding: 0;
+.about-audience-cta {
+  align-self: flex-start;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.7rem 1.15rem;
+  text-decoration: none;
+}
+
+.about-audience-card--dark .about-audience-cta {
+  background: var(--lime);
+  color: var(--green);
+}
+
+.about-audience-card--lime .about-audience-cta {
+  background: var(--green);
+  color: white;
 }
 
 .about-flow-section .about-section-heading h2 {
@@ -881,9 +910,8 @@ select:focus {
 }
 
 .about-flow-list {
-  counter-reset: flow;
   display: grid;
-  gap: 0;
+  gap: 1.5rem;
   grid-template-columns: repeat(3, 1fr);
   list-style: none;
   margin: clamp(2.5rem, 5vw, 4.5rem) 0 0;
@@ -891,62 +919,61 @@ select:focus {
 }
 
 .about-flow-list li {
-  border-top: 5px solid var(--green);
-  min-height: 260px;
-  padding: 1.6rem clamp(1rem, 3vw, 2.5rem) 0 0;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(23, 32, 29, 0.06);
+  padding: clamp(1.75rem, 3vw, 2.25rem);
 }
 
-.about-flow-list li:nth-child(2) {
-  border-color: #2f695a;
-}
-
-.about-flow-list li:nth-child(3) {
-  border-color: #5c6f22;
-}
-
-.about-flow-list span {
-  color: #a5412c;
-  display: block;
-  margin-bottom: 3.5rem;
+.about-flow-badge {
+  align-items: center;
+  background: var(--lime);
+  border-radius: 999px;
+  color: var(--green);
+  display: inline-flex;
+  font-size: 1.1rem;
+  font-weight: 800;
+  height: 2.5rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  width: 2.5rem;
 }
 
 .about-flow-list strong {
   display: block;
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
   letter-spacing: -0.035em;
-  line-height: 1.1;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
 }
 
 .about-flow-list p {
-  margin-bottom: 0;
+  color: #3a4740;
+  margin: 0;
   max-width: 22rem;
 }
 
 .about-city {
-  align-items: stretch;
-  background: var(--cream);
-  border-radius: 18px;
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.75fr);
-  overflow: hidden;
+  position: relative;
 }
 
 .about-city figure {
-  min-height: 620px;
+  border-radius: 18px;
   margin: 0;
+  overflow: hidden;
   position: relative;
 }
 
 .about-city img {
   display: block;
-  height: 100%;
+  height: 420px;
   object-fit: cover;
   width: 100%;
 }
 
 .about-city figcaption {
   background: var(--lime);
-  bottom: 0;
   color: var(--green);
   font-size: 0.78rem;
   font-weight: 800;
@@ -955,23 +982,31 @@ select:focus {
   padding: 0.8rem 1rem;
   position: absolute;
   text-transform: uppercase;
+  top: 0;
 }
 
-.about-city > div {
-  align-content: center;
-  display: grid;
-  padding: clamp(2.5rem, 6vw, 6rem);
+.about-city-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(23, 32, 29, 0.15);
+  margin: -4rem clamp(1.5rem, 6vw, 4rem) 0;
+  max-width: 30rem;
+  padding: clamp(2rem, 4vw, 2.75rem);
+  position: relative;
 }
 
-.about-city p:not(.eyebrow) {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  margin: 1.75rem 0;
+.about-city-card p:not(.eyebrow) {
+  color: #3a4740;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 1rem 0 1.5rem;
 }
 
 .about-cta {
   background: var(--green);
   border-radius: 999px;
   color: white;
+  font-weight: 800;
   padding: 0.85rem 1.15rem;
   text-decoration: none;
 }
@@ -1345,13 +1380,8 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .about-intro,
-  .about-city {
-    grid-template-columns: 1fr;
-  }
-
-  .about-city figure {
-    min-height: 480px;
+  .about-city img {
+    height: 360px;
   }
 }
 
@@ -1401,26 +1431,22 @@ select:focus {
     gap: 4.5rem;
   }
 
-  .about-audiences,
-  .about-city {
+  .about-city figure,
+  .about-city-card {
     border-radius: 14px;
   }
 
-  .about-audience-split article {
+  .about-audience-card {
     min-height: 300px;
   }
 
-  .about-flow-list li {
-    min-height: 0;
-    padding-bottom: 2rem;
+  .about-city-card {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
-  .about-flow-list span {
-    margin-bottom: 2rem;
-  }
-
-  .about-city figure {
-    min-height: 400px;
+  .about-city img {
+    height: 300px;
   }
 
   .site-footer {
