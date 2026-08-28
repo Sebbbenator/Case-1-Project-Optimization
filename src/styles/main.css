@@ -339,6 +339,7 @@ select:focus {
   flex-direction: column;
   min-height: 100%;
   overflow: hidden;
+  position: relative;
   transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
@@ -362,7 +363,7 @@ select:focus {
 }
 
 .event-category {
-  color: #a5412c;
+  color: var(--green);
   font-size: 0.72rem;
   font-weight: 850;
   letter-spacing: 0.14em;
@@ -411,6 +412,12 @@ select:focus {
   padding: 0.7rem 1rem;
   text-decoration: none;
   transition: background 160ms ease, color 160ms ease;
+}
+
+.card-link::after {
+  content: "";
+  inset: 0;
+  position: absolute;
 }
 
 .card-link:hover {
