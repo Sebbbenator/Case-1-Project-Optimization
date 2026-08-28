@@ -30,15 +30,19 @@ export default function VenuesPage() {
 
   return (
     <>
-      <main>
-        <section className="section-heading">
-          <div>
-            <p className="eyebrow dark">Steder</p>
-            <h1>Hvor det sker</h1>
-          </div>
-          <p>De faste rammer bag jeres kommende events i Aarhus.</p>
-        </section>
+      <header
+        className="venues-header"
+        style={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"
+        }}
+      >
+        <p className="eyebrow">Steder</p>
+        <h1>Hvor det sker</h1>
+        <p>De faste rammer bag jeres kommende events i Aarhus.</p>
+      </header>
 
+      <main>
         <StatusMessage>{isLoading && "Indlæser steder..."}</StatusMessage>
         <StatusMessage type="error">{errorMessage}</StatusMessage>
 
@@ -64,6 +68,7 @@ export default function VenuesPage() {
                       {venue.events.map((event) => (
                         <li key={event.id}>
                           <Link to={`/events/${event.id}`}>{event.title}</Link>
+                          <span className="meta-divider" aria-hidden="true"></span>
                           <span>{formatEventDate(event.date)}</span>
                         </li>
                       ))}

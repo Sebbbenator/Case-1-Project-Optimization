@@ -85,16 +85,25 @@ select {
 
 .hero {
   align-items: center;
-  background:
-    linear-gradient(to top, rgba(12, 42, 34, 0.95) 12%, rgba(12, 42, 34, 0) 78%),
-    url("https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover;
+  background-color: var(--green);
+  background-position: center;
+  background-size: cover;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   min-height: 80vh;
   padding: clamp(5rem, 10vw, 9rem) var(--content-edge) clamp(3rem, 6vw, 5rem);
+  position: relative;
   text-align: center;
+}
+
+.hero::before {
+  background: linear-gradient(to top, rgba(12, 42, 34, 0.95) 12%, rgba(12, 42, 34, 0) 78%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .eyebrow {
@@ -192,12 +201,20 @@ main {
 }
 
 .events-header {
-  /* placeholder photo, same as homepage hero for now, swap later */
-  background:
-    linear-gradient(160deg, rgba(15, 42, 35, 0.92) 0%, rgba(23, 63, 53, 0.85) 60%, rgba(29, 74, 62, 0.75) 100%),
-    url("https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover;
+  background-color: var(--green);
+  background-position: center;
+  background-size: cover;
   color: white;
   padding: clamp(3.5rem, 8vw, 5.5rem) var(--content-edge) clamp(5rem, 10vw, 7rem);
+  position: relative;
+}
+
+.events-header::before {
+  background: linear-gradient(160deg, rgba(15, 42, 35, 0.92) 0%, rgba(23, 63, 53, 0.85) 60%, rgba(29, 74, 62, 0.75) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .events-header .eyebrow {
@@ -402,6 +419,45 @@ select:focus {
   color: var(--green);
 }
 
+.venues-header {
+  background-color: var(--green);
+  background-position: center;
+  background-size: cover;
+  color: white;
+  padding: clamp(3.5rem, 8vw, 5.5rem) var(--content-edge);
+  position: relative;
+}
+
+.venues-header::before {
+  background: linear-gradient(160deg, rgba(15, 42, 35, 0.92) 0%, rgba(23, 63, 53, 0.85) 60%, rgba(29, 74, 62, 0.75) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.venues-header .eyebrow {
+  background: var(--lime);
+  border-radius: 999px;
+  color: var(--green);
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+}
+
+.venues-header h1 {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin: 0.75rem 0;
+}
+
+.venues-header > p:not(.eyebrow) {
+  color: rgba(245, 242, 234, 0.78);
+  font-size: 1.05rem;
+  margin: 0;
+  max-width: 40ch;
+}
+
 .venue-grid {
   display: grid;
   gap: 1.5rem;
@@ -443,10 +499,10 @@ select:focus {
 }
 
 .venue-event-list li {
+  align-items: center;
   display: flex;
   font-size: 0.88rem;
-  justify-content: space-between;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .venue-event-list a {
@@ -585,12 +641,21 @@ select:focus {
 }
 
 .about-header {
-  background:
-    linear-gradient(90deg, rgba(12, 42, 34, 0.9) 0%, rgba(12, 42, 34, 0.58) 58%, rgba(12, 42, 34, 0.2) 100%),
-    url("https://images.unsplash.com/photo-1553376482-e96b68bd1e11?q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0") center / cover;
-  min-height: 68vh;
-  display: flex;
   align-items: flex-end;
+  background-color: var(--green);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  min-height: 68vh;
+  position: relative;
+}
+
+.about-header::before {
+  background: linear-gradient(90deg, rgba(12, 42, 34, 0.9) 0%, rgba(12, 42, 34, 0.58) 58%, rgba(12, 42, 34, 0.2) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .page-header h1 {
@@ -837,7 +902,9 @@ select:focus {
 
 .event-hero-photo {
   align-items: flex-start;
-  background: url("https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover;
+  background-color: var(--green);
+  background-position: center;
+  background-size: cover;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
