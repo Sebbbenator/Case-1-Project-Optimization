@@ -39,7 +39,7 @@ export default function AboutPage() {
               <span>Primær målgruppe</span>
               <h3>For dig, der vil opdage byen</h3>
               <p>Find lokale oplevelser, få det vigtigste overblik, og tilmeld dig uden unødige omveje.</p>
-              <Link to="/">Udforsk kommende events →</Link>
+              <Link to="/events">Udforsk kommende events →</Link>
             </article>
             <article>
               <span>For arrangører</span>
@@ -86,7 +86,7 @@ export default function AboutPage() {
             <p className="eyebrow dark">Aarhus tæt på</p>
             <h2 id="about-city-title">Find plads til noget nyt.</h2>
             <p>Mellemrum peger på steder, idéer og fællesskaber på tværs af byen — fra små scener til store tanker.</p>
-            <Link className="about-cta" to="/">
+            <Link className="about-cta" to="/events">
               Se kommende events →
             </Link>
           </div>

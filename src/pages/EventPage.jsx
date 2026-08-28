@@ -111,7 +111,7 @@ export default function EventPage() {
   return (
     <>
       <main className="event-page">
-        <Link className="back-link" to="/">
+        <Link className="back-link" to="/events">
           ← Alle events
         </Link>
 

@@ -13,7 +13,7 @@ export default function Footer() {
         <nav className="footer-links" aria-label="Footer">
           <div className="footer-link-group">
             <h2 className="footer-heading">Udforsk</h2>
-            <Link to="/">Events</Link>
+            <Link to="/events">Events</Link>
             <Link to="/om">Om Mellemrum</Link>
           </div>
           <div className="footer-link-group">
