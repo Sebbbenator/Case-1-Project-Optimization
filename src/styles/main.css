@@ -282,7 +282,7 @@ select:focus {
 
 .message-error {
   background: rgba(255, 120, 90, 0.14);
-  color: var(--orange);
+  color: #a5412c;
 }
 
 .page-header,
@@ -343,8 +343,8 @@ select:focus {
   margin: 0;
 }
 
-.about-page p {
-  color: #4f5c57;
+.about-page p:not(.eyebrow) {
+  color: #3a4740;
   font-size: 1.08rem;
   line-height: 1.7;
 }
@@ -464,7 +464,7 @@ select:focus {
 }
 
 .about-flow-list li:nth-child(3) {
-  border-color: var(--lime);
+  border-color: #5c6f22;
 }
 
 .about-flow-list span {
@@ -626,7 +626,7 @@ select:focus {
 }
 
 .form-message-error {
-  color: var(--orange);
+  color: #a5412c;
 }
 
 .form-message-success {
