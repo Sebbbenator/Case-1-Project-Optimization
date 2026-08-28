@@ -96,6 +96,7 @@ export default function HomePage() {
                     <p>{event.summary}</p>
                     <div className="event-meta">
                       <span>{formatEventDate(event.date)}</span>
+                      <span className="meta-divider" aria-hidden="true"></span>
                       <span>{event.venue.name}</span>
                     </div>
                     <Link className="card-link" to={`/events/${event.id}`}>

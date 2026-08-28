@@ -179,18 +179,108 @@ main {
   max-width: 30rem;
 }
 
-.filters {
-  background: rgba(255, 255, 255, 0.62);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 2fr 1fr;
-  margin-bottom: 2.5rem;
-  padding: 1rem;
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
-.filters label,
+.events-header {
+  /* placeholder photo, same as homepage hero for now, swap later */
+  background:
+    linear-gradient(160deg, rgba(15, 42, 35, 0.92) 0%, rgba(23, 63, 53, 0.85) 60%, rgba(29, 74, 62, 0.75) 100%),
+    url("https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover;
+  color: white;
+  padding: clamp(3.5rem, 8vw, 5.5rem) var(--content-edge) clamp(5rem, 10vw, 7rem);
+}
+
+.events-header .eyebrow {
+  background: var(--lime);
+  border-radius: 999px;
+  color: var(--green);
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+}
+
+.events-header h1 {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  letter-spacing: -0.05em;
+  line-height: 0.95;
+  margin: 0 0 0.75rem;
+}
+
+.events-header > p:not(.eyebrow) {
+  color: rgba(245, 242, 234, 0.78);
+  font-size: 1.05rem;
+  margin: 0;
+  max-width: 40ch;
+}
+
+.filter-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(23, 32, 29, 0.12);
+  margin: -3rem 0 2.5rem;
+  padding: 1.5rem 1.75rem;
+  position: relative;
+  z-index: 2;
+}
+
+.search-field {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 1.1rem;
+}
+
+.search-field svg {
+  color: #59635f;
+  flex-shrink: 0;
+}
+
+.search-field input {
+  background: none;
+  border: 0;
+  flex: 1;
+  padding: 0;
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.category-pill {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 1.1rem;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.category-pill:hover {
+  border-color: var(--green);
+}
+
+.category-pill.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
 .signup-panel label {
   display: grid;
   font-size: 0.78rem;
@@ -277,12 +367,21 @@ select:focus {
 }
 
 .event-meta {
+  align-items: center;
   border-top: 1px solid var(--line);
   display: flex;
   font-size: 0.82rem;
-  justify-content: space-between;
+  gap: 0.6rem;
   margin-top: auto;
   padding-top: 1rem;
+}
+
+.meta-divider {
+  background: var(--lime);
+  display: inline-block;
+  flex-shrink: 0;
+  height: 12px;
+  width: 2px;
 }
 
 .card-link {
@@ -1057,7 +1156,6 @@ select:focus {
   .event-grid,
   .venue-grid,
   .venues-teaser-grid,
-  .filters,
   .about-audience-split,
   .about-flow-list {
     grid-template-columns: 1fr;
