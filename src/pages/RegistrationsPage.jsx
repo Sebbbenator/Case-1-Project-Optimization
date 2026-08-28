@@ -54,24 +54,32 @@ export default function RegistrationsPage() {
             {registrations.length === 0 ? (
               <StatusMessage>Ingen tilmeldinger endnu.</StatusMessage>
             ) : (
-              <div className="registration-list">
-                <div className="registration-row registration-labels">
-                  <span>Navn</span>
-                  <span>Event</span>
-                  <span>Dato</span>
-                  <span>Status</span>
-                </div>
-                {registrations.map((registration) => (
-                  <div className="registration-row" key={registration.id}>
-                    <div>
-                      <strong>{registration.name}</strong>
-                      <small>{registration.email}</small>
-                    </div>
-                    <span>{registration.eventTitle}</span>
-                    <span>{formatShortDate(registration.eventDate)}</span>
-                    <span className="status">{registration.status}</span>
-                  </div>
-                ))}
+              <div className="registration-table-wrapper">
+                <table className="registration-list">
+                  <thead>
+                    <tr className="registration-row registration-labels">
+                      <th scope="col">Navn</th>
+                      <th scope="col">Event</th>
+                      <th scope="col">Dato</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {registrations.map((registration) => (
+                      <tr className="registration-row" key={registration.id}>
+                        <td>
+                          <strong>{registration.name}</strong>
+                          <small>{registration.email}</small>
+                        </td>
+                        <td>{registration.eventTitle}</td>
+                        <td>{formatShortDate(registration.eventDate)}</td>
+                        <td>
+                          <span className="status">{registration.status}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             )}
           </>

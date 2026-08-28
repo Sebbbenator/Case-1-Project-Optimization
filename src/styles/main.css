@@ -651,24 +651,30 @@ select:focus {
   padding: 0.6rem 1rem;
 }
 
+.registration-table-wrapper {
+  overflow-x: auto;
+}
+
 .registration-list {
   background: white;
   border: 1px solid var(--line);
+  border-collapse: collapse;
   border-radius: 14px;
   box-shadow: 0 8px 26px rgba(23, 32, 29, 0.05);
+  min-width: 640px;
   overflow: hidden;
+  width: 100%;
 }
 
-.registration-row {
-  align-items: center;
+.registration-row th,
+.registration-row td {
   border-bottom: 1px solid var(--line);
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1.2fr 1.5fr 0.7fr 0.5fr;
   padding: 1rem 1.2rem;
+  text-align: left;
+  vertical-align: middle;
 }
 
-.registration-row:last-child {
+.registration-row:last-child td {
   border-bottom: 0;
 }
 
@@ -682,12 +688,28 @@ select:focus {
   margin-top: 0.2rem;
 }
 
-.registration-labels {
+.registration-labels th {
   background: var(--cream);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.registration-labels th:nth-child(1) {
+  width: 30%;
+}
+
+.registration-labels th:nth-child(2) {
+  width: 38%;
+}
+
+.registration-labels th:nth-child(3) {
+  width: 18%;
+}
+
+.registration-labels th:nth-child(4) {
+  width: 14%;
 }
 
 .status {
@@ -868,14 +890,6 @@ select:focus {
 
   .about-city figure {
     min-height: 400px;
-  }
-
-  .registration-row {
-    grid-template-columns: 1fr;
-  }
-
-  .registration-labels {
-    display: none;
   }
 
   .site-footer {
