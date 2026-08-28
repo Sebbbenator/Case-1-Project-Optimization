@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import EventsPage from "./pages/EventsPage";
 import AboutPage from "./pages/AboutPage";
 import EventPage from "./pages/EventPage";
+import VenuesPage from "./pages/VenuesPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const RequireAuth = lazy(() => import("./components/RequireAuth"));
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/events/:eventId" element={<EventPage />} />
+          <Route path="/steder" element={<VenuesPage />} />
           <Route path="/om" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route

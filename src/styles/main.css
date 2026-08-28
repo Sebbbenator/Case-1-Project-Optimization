@@ -276,6 +276,63 @@ select:focus {
   color: var(--green);
 }
 
+.venue-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.venue-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(23, 32, 29, 0.05);
+  padding: 1.5rem;
+}
+
+.venue-card h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.5rem;
+}
+
+.venue-address {
+  color: #59635f;
+  margin: 0 0 1rem;
+}
+
+.venue-website {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration-color: currentColor;
+}
+
+.venue-event-list {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 1rem 0 0;
+}
+
+.venue-event-list li {
+  display: flex;
+  font-size: 0.88rem;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.venue-event-list a {
+  color: var(--green);
+  font-weight: 700;
+}
+
+.venue-event-list span {
+  color: #59635f;
+  white-space: nowrap;
+}
+
 .message {
   background: var(--cream);
   padding: 1rem;
@@ -820,7 +877,8 @@ select:focus {
 }
 
 @media (max-width: 900px) {
-  .event-grid {
+  .event-grid,
+  .venue-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -857,6 +915,7 @@ select:focus {
   }
 
   .event-grid,
+  .venue-grid,
   .filters,
   .about-audience-split,
   .about-flow-list {
