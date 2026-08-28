@@ -110,44 +110,49 @@ export default function EventPage() {
 
   return (
     <>
-      <main className="event-page">
-        <Link className="back-link" to="/events">
-          ← Alle events
-        </Link>
-
-        <section className="event-detail">
-          <img src={event.image} alt={event.title} />
-          <div className="event-detail-content">
-            <p className="event-category">{event.category}</p>
+      <header className="event-hero">
+        <div className="event-hero-photo">
+          <Link className="back-link" to="/events">
+            ← Alle events
+          </Link>
+          <div className="event-hero-content">
+            <span className="eyebrow">{event.category}</span>
             <h1>{event.title}</h1>
-            <p className="lead">{event.summary}</p>
-            <div className="detail-list">
-              <p>
-                <strong>Dato</strong>
-                {formatEventDateTime(event.date)}
-              </p>
-              <p>
-                <strong>Sted</strong>
-                <span>
-                  {event.venue.name}
-                  <br />
-                  {event.venue.address}, {event.venue.postalCode} {event.venue.city}
-                  {event.venue.website && (
-                    <>
-                      <br />
-                      <a href={event.venue.website}>Besøg venue</a>
-                    </>
-                  )}
-                </span>
-              </p>
-              <p>
-                <strong>Pris</strong>
-                {event.price === 0 ? "Gratis" : `${event.price} kr.`}
-              </p>
-            </div>
-            <p>{event.description}</p>
+          </div>
+        </div>
+      </header>
+
+      <main className="event-page">
+        <section className="event-info-row">
+          <div>
+            <p className="info-label">Dato</p>
+            <p className="info-value">{formatEventDateTime(event.date)}</p>
+          </div>
+          <span className="info-divider" aria-hidden="true"></span>
+          <div>
+            <p className="info-label">Sted</p>
+            <p className="info-value">
+              {event.venue.name}
+              <br />
+              {event.venue.address}, {event.venue.postalCode} {event.venue.city}
+            </p>
+            {event.venue.website && (
+              <a className="info-link" href={event.venue.website}>
+                Besøg venue
+              </a>
+            )}
+          </div>
+          <span className="info-divider" aria-hidden="true"></span>
+          <div>
+            <p className="info-label">Pris</p>
+            <p className="info-value">{event.price === 0 ? "Gratis" : `${event.price} kr.`}</p>
           </div>
         </section>
+
+        <div className="event-body">
+          <p className="lead">{event.summary}</p>
+          <p>{event.description}</p>
+        </div>
 
         <section className="signup-panel">
           <div>
