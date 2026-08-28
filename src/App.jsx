@@ -1,32 +1,37 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
-import RequireAuth from "./components/RequireAuth";
+import StatusMessage from "./components/StatusMessage";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import EventPage from "./pages/EventPage";
-import LoginPage from "./pages/LoginPage";
-import RegistrationsPage from "./pages/RegistrationsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+
+const RequireAuth = lazy(() => import("./components/RequireAuth"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegistrationsPage = lazy(() => import("./pages/RegistrationsPage"));
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/events/:eventId" element={<EventPage />} />
-        <Route path="/om" element={<AboutPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route
-          path="/tilmeldinger"
-          element={
-            <RequireAuth>
-              <RegistrationsPage />
-            </RequireAuth>
-          }
-        />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<StatusMessage>Indlæser...</StatusMessage>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/events/:eventId" element={<EventPage />} />
+          <Route path="/om" element={<AboutPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/tilmeldinger"
+            element={
+              <RequireAuth>
+                <RegistrationsPage />
+              </RequireAuth>
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }

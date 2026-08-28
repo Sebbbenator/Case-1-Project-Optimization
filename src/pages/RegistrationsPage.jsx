@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import * as registrationsService from "../services/registrationsService";
+import * as registrationAdminService from "../services/registrationAdminService";
 import { formatShortDate } from "../utils/formatDate";
 import { supabaseAuth } from "../lib/supabaseAuthClient";
 import Footer from "../components/Footer";
@@ -18,7 +18,7 @@ export default function RegistrationsPage() {
       setErrorMessage("");
 
       try {
-        const data = await registrationsService.getAll();
+        const data = await registrationAdminService.getAll();
         setRegistrations(data);
       } catch (error) {
         setErrorMessage(error.message || "Der opstod en fejl under indlæsning af tilmeldinger.");
