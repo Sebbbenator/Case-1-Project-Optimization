@@ -99,7 +99,7 @@ select {
 }
 
 .hero::before {
-  background: linear-gradient(to top, rgba(12, 42, 34, 0.95) 12%, rgba(12, 42, 34, 0) 78%);
+  background: linear-gradient(to top, rgba(12, 42, 34, 0.95) 15%, rgba(12, 42, 34, 0.75) 75%, rgba(12, 42, 34, 0) 95%);
   content: "";
   inset: 0;
   position: absolute;
