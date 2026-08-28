@@ -147,14 +147,16 @@ export default function EventPage() {
               Navn
               <input value={name} onChange={(inputEvent) => setName(inputEvent.target.value)} required />
             </label>
-            <span>E-mail</span>
-            <input
-              type="email"
-              value={email}
-              onChange={(inputEvent) => setEmail(inputEvent.target.value)}
-              placeholder="dig@example.com"
-              required
-            />
+            <label>
+              E-mail
+              <input
+                type="email"
+                value={email}
+                onChange={(inputEvent) => setEmail(inputEvent.target.value)}
+                placeholder="dig@example.com"
+                required
+              />
+            </label>
             <StatusMessage context="form" type="error">
               {validationError || submitErrorMessage}
             </StatusMessage>
