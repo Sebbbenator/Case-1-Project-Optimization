@@ -39,19 +39,33 @@ select {
 }
 
 .brand {
+  align-items: center;
+  display: inline-flex;
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.04em;
   text-decoration: none;
 }
 
-.brand span {
-  color: var(--lime);
+.brand-gap {
+  background: var(--lime);
+  display: inline-block;
+  height: 2px;
+  margin: 0 0.35em;
+  width: 1.1em;
 }
 
 .nav-links {
+  align-items: center;
   display: flex;
-  gap: 0.4rem;
+  gap: 0.3rem;
+}
+
+.nav-divider {
+  background: rgba(216, 255, 98, 0.45);
+  display: inline-block;
+  height: 16px;
+  width: 1px;
 }
 
 .nav-links a {
@@ -925,6 +939,10 @@ select:focus {
   .section-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .nav-divider {
+    display: none;
   }
 
   .site-nav {
