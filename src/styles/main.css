@@ -127,8 +127,7 @@ select {
   color: var(--green);
 }
 
-.hero h1,
-.page-header h1 {
+.hero h1 {
   font-size: clamp(3.2rem, 8vw, 7.5rem);
   letter-spacing: -0.075em;
   line-height: 0.9;
@@ -614,7 +613,6 @@ select:focus {
   color: #a5412c;
 }
 
-.page-header,
 .admin-header {
   background: var(--green);
   color: white;
@@ -713,8 +711,10 @@ select:focus {
   background-color: var(--green);
   background-position: center;
   background-size: cover;
+  color: white;
   display: flex;
   min-height: 68vh;
+  padding: clamp(3rem, 6vw, 5rem) var(--content-edge) clamp(3.5rem, 7vw, 5.5rem);
   position: relative;
 }
 
@@ -726,8 +726,20 @@ select:focus {
   z-index: -1;
 }
 
-.page-header h1 {
+.about-header .eyebrow {
+  background: var(--lime);
+  border-radius: 999px;
+  color: var(--green);
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+}
+
+.about-header h1 {
   font-size: clamp(3rem, 6vw, 6rem);
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+  margin: 0;
+  max-width: 12ch;
 }
 
 .about-header-content {
