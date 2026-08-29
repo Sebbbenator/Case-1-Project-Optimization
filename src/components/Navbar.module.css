@@ -39,7 +39,7 @@
 
 .navLinks a:hover,
 .navLinks a:global(.active) {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--hover-overlay);
   color: white;
 }
 
