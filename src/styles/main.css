@@ -136,11 +136,13 @@ select {
 }
 
 .hero-copy {
-  color: rgba(255, 255, 255, 0.76);
+  color: white;
   font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
   line-height: 1.55;
   margin: 2rem 0;
   max-width: 36rem;
+  text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
 }
 
 .hero-link {
@@ -232,10 +234,12 @@ main {
 }
 
 .events-header > p:not(.eyebrow) {
-  color: rgba(245, 242, 234, 0.78);
+  color: var(--paper);
   font-size: 1.05rem;
+  font-weight: 500;
   margin: 0;
   max-width: 40ch;
+  text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
 }
 
 .filter-card {
@@ -363,11 +367,15 @@ select:focus {
 }
 
 .event-category {
+  background: var(--lime);
+  border-radius: 999px;
   color: var(--green);
+  display: inline-block;
   font-size: 0.72rem;
   font-weight: 850;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   margin: 0 0 0.7rem;
+  padding: 0.3rem 0.7rem;
   text-transform: uppercase;
 }
 
@@ -458,10 +466,12 @@ select:focus {
 }
 
 .venues-header > p:not(.eyebrow) {
-  color: rgba(245, 242, 234, 0.78);
+  color: var(--paper);
   font-size: 1.05rem;
+  font-weight: 500;
   margin: 0;
   max-width: 40ch;
+  text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
 }
 
 .venue-grid {
@@ -648,7 +658,7 @@ select:focus {
 }
 
 .contact-header p {
-  color: rgba(245, 242, 234, 0.78);
+  color: var(--paper);
   font-size: 1.05rem;
   margin: 1rem 0 0;
   max-width: 40ch;
@@ -754,11 +764,13 @@ select:focus {
 }
 
 .about-header-content > p:last-child {
-  color: rgba(255, 255, 255, 0.78);
+  color: white;
   font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 500;
   line-height: 1.5;
   margin: 1.75rem 0 0;
   max-width: 34rem;
+  text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
 }
 
 .lead {
