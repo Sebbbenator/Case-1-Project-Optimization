@@ -5,7 +5,7 @@
 
 .messageError {
   background: rgba(255, 120, 90, 0.14);
-  color: #a5412c;
+  color: var(--rust);
 }
 
 .formMessage {
@@ -15,7 +15,7 @@
 }
 
 .formMessageError {
-  color: #a5412c;
+  color: var(--rust);
 }
 
 .formMessageSuccess {

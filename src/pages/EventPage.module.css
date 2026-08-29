@@ -17,7 +17,7 @@
 }
 
 .eventHeroPhoto::before {
-  background: linear-gradient(to top, rgba(12, 42, 34, 0.95) 12%, rgba(12, 42, 34, 0.1) 65%, rgba(12, 42, 34, 0.55) 100%);
+  background: linear-gradient(to top, rgba(var(--scrim), 0.95) 12%, rgba(var(--scrim), 0.1) 65%, rgba(var(--scrim), 0.55) 100%);
   content: "";
   inset: 0;
   position: absolute;
@@ -82,7 +82,7 @@
 }
 
 .infoLabel {
-  color: #a5412c;
+  color: var(--rust);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;

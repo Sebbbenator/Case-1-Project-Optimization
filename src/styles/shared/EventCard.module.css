@@ -51,7 +51,7 @@
 }
 
 .eventCardContent > p:not(.eventCategory) {
-  color: #59635f;
+  color: var(--muted);
   line-height: 1.5;
 }
 

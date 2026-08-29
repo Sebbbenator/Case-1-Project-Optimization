@@ -14,7 +14,7 @@
 }
 
 .hero::before {
-  background: linear-gradient(to top, rgba(12, 42, 34, 0.95) 15%, rgba(12, 42, 34, 0.75) 75%, rgba(12, 42, 34, 0) 95%);
+  background: linear-gradient(to top, rgba(var(--scrim), 0.95) 15%, rgba(var(--scrim), 0.75) 75%, rgba(var(--scrim), 0) 95%);
   content: "";
   inset: 0;
   position: absolute;
@@ -44,7 +44,7 @@
   line-height: 1.55;
   margin: 2rem 0;
   max-width: 36rem;
-  text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
+  text-shadow: var(--text-shadow);
 }
 
 .heroLink {

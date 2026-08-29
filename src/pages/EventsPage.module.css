@@ -36,7 +36,7 @@
   font-weight: 500;
   margin: 0;
   max-width: 40ch;
-  text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
+  text-shadow: var(--text-shadow);
 }
 
 .filterCard {
@@ -59,7 +59,7 @@
 }
 
 .searchField svg {
-  color: #59635f;
+  color: var(--muted);
   flex-shrink: 0;
 }
 
