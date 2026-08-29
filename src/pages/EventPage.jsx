@@ -6,6 +6,8 @@ import { formatEventDateTime } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
 import NotFoundPage from "./NotFoundPage";
+import styles from "./EventPage.module.css";
+import panelStyles from "../styles/shared/SignupPanel.module.css";
 
 export default function EventPage() {
   const { eventId } = useParams();
@@ -85,7 +87,7 @@ export default function EventPage() {
   if (isLoading) {
     return (
       <>
-        <main className="event-page">
+        <main className={styles.eventPage}>
           <StatusMessage>Indlæser event...</StatusMessage>
         </main>
         <Footer />
@@ -100,7 +102,7 @@ export default function EventPage() {
   if (loadErrorMessage) {
     return (
       <>
-        <main className="event-page">
+        <main className={styles.eventPage}>
           <StatusMessage type="error">{loadErrorMessage}</StatusMessage>
         </main>
         <Footer />
@@ -110,51 +112,51 @@ export default function EventPage() {
 
   return (
     <>
-      <header className="event-hero">
-        <div className="event-hero-photo" style={{ backgroundImage: `url(${event.image})` }}>
-          <Link className="back-link" to="/events">
+      <header>
+        <div className={styles.eventHeroPhoto} style={{ backgroundImage: `url(${event.image})` }}>
+          <Link className={styles.backLink} to="/events">
             ← Alle events
           </Link>
-          <div className="event-hero-content">
+          <div className={styles.eventHeroContent}>
             <span className="eyebrow">{event.category}</span>
             <h1>{event.title}</h1>
           </div>
         </div>
       </header>
 
-      <main className="event-page">
-        <section className="event-info-row">
+      <main className={styles.eventPage}>
+        <section className={styles.eventInfoRow}>
           <div>
-            <p className="info-label">Dato</p>
-            <p className="info-value">{formatEventDateTime(event.date)}</p>
+            <p className={styles.infoLabel}>Dato</p>
+            <p className={styles.infoValue}>{formatEventDateTime(event.date)}</p>
           </div>
-          <span className="info-divider" aria-hidden="true"></span>
+          <span className={styles.infoDivider} aria-hidden="true"></span>
           <div>
-            <p className="info-label">Sted</p>
-            <p className="info-value">
+            <p className={styles.infoLabel}>Sted</p>
+            <p className={styles.infoValue}>
               {event.venue.name}
               <br />
               {event.venue.address}, {event.venue.postalCode} {event.venue.city}
             </p>
             {event.venue.website && (
-              <a className="info-link" href={event.venue.website}>
+              <a className={styles.infoLink} href={event.venue.website}>
                 Besøg venue
               </a>
             )}
           </div>
-          <span className="info-divider" aria-hidden="true"></span>
+          <span className={styles.infoDivider} aria-hidden="true"></span>
           <div>
-            <p className="info-label">Pris</p>
-            <p className="info-value">{event.price === 0 ? "Gratis" : `${event.price} kr.`}</p>
+            <p className={styles.infoLabel}>Pris</p>
+            <p className={styles.infoValue}>{event.price === 0 ? "Gratis" : `${event.price} kr.`}</p>
           </div>
         </section>
 
-        <div className="event-body">
-          <p className="lead">{event.summary}</p>
+        <div className={styles.eventBody}>
+          <p className={styles.lead}>{event.summary}</p>
           <p>{event.description}</p>
         </div>
 
-        <section className="signup-panel">
+        <section className={panelStyles.signupPanel}>
           <div>
             <p className="eyebrow dark">Tilmelding</p>
             <h2>Reserver din plads</h2>

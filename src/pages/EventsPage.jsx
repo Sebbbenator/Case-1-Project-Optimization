@@ -4,6 +4,8 @@ import * as eventsService from "../services/eventsService";
 import { formatEventDate } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import styles from "./EventsPage.module.css";
+import cardStyles from "../styles/shared/EventCard.module.css";
 
 export default function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -43,7 +45,7 @@ export default function EventsPage() {
   return (
     <>
       <header
-        className="events-header"
+        className={styles.eventsHeader}
         style={{
           backgroundImage:
             "url(https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"
@@ -60,8 +62,8 @@ export default function EventsPage() {
 
         {!isLoading && !errorMessage && (
           <>
-            <section className="filter-card">
-              <label className="search-field">
+            <section className={styles.filterCard}>
+              <label className={styles.searchField}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                   <circle cx="11" cy="11" r="7"></circle>
                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -75,12 +77,12 @@ export default function EventsPage() {
                 />
               </label>
 
-              <div className="category-pills" role="group" aria-label="Filtrer efter kategori">
+              <div className={styles.categoryPills} role="group" aria-label="Filtrer efter kategori">
                 {categories.map((item) => (
                   <button
                     key={item}
                     type="button"
-                    className={`category-pill${category === item ? " active" : ""}`}
+                    className={`${styles.categoryPill}${category === item ? ` ${styles.active}` : ""}`}
                     aria-pressed={category === item}
                     onClick={() => setCategory(item)}
                   >
@@ -93,20 +95,20 @@ export default function EventsPage() {
             {filteredEvents.length === 0 ? (
               <StatusMessage>Ingen events matcher din søgning.</StatusMessage>
             ) : (
-              <section className="event-grid">
+              <section className={styles.eventGrid}>
                 {filteredEvents.map((event) => (
-                  <article className="event-card" key={event.id}>
+                  <article className={cardStyles.eventCard} key={event.id}>
                     <img src={event.image} alt={event.title} loading="lazy" />
-                    <div className="event-card-content">
-                      <p className="event-category">{event.category}</p>
+                    <div className={cardStyles.eventCardContent}>
+                      <p className={cardStyles.eventCategory}>{event.category}</p>
                       <h3>{event.title}</h3>
                       <p>{event.summary}</p>
-                      <div className="event-meta">
+                      <div className={cardStyles.eventMeta}>
                         <span>{formatEventDate(event.date)}</span>
                         <span className="meta-divider" aria-hidden="true"></span>
                         <span>{event.venue.name}</span>
                       </div>
-                      <Link className="card-link" to={`/events/${event.id}`}>
+                      <Link className={cardStyles.cardLink} to={`/events/${event.id}`}>
                         Læs mere
                       </Link>
                     </div>

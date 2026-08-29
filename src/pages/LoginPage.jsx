@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import { supabaseAuth } from "../lib/supabaseAuthClient";
 import StatusMessage from "../components/StatusMessage";
 import Footer from "../components/Footer";
+import adminStyles from "../styles/shared/Admin.module.css";
+import panelStyles from "../styles/shared/SignupPanel.module.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -29,12 +31,12 @@ export default function LoginPage() {
 
   return (
     <>
-      <header className="admin-header">
+      <header className={adminStyles.adminHeader}>
         <p className="eyebrow">Internt</p>
         <h1>Log ind</h1>
       </header>
       <main>
-        <section className="signup-panel">
+        <section className={panelStyles.signupPanel}>
           <div>
             <p className="eyebrow dark">Admin</p>
             <h2>Log ind for at se tilmeldinger</h2>

@@ -5,6 +5,8 @@ import * as venuesService from "../services/venuesService";
 import { formatEventDate } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import styles from "./HomePage.module.css";
+import cardStyles from "../styles/shared/EventCard.module.css";
 
 export default function HomePage() {
   const [events, setEvents] = useState([]);
@@ -57,7 +59,7 @@ export default function HomePage() {
   return (
     <>
       <header
-        className="hero"
+        className={styles.hero}
         style={{
           backgroundImage:
             "url(https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"
@@ -65,21 +67,21 @@ export default function HomePage() {
       >
         <p className="eyebrow">Kultur i Aarhus</p>
         <h1>Find plads til noget nyt.</h1>
-        <p className="hero-copy">
+        <p className={styles.heroCopy}>
           Koncerter, talks og workshops samlet ét sted. Find dit næste event, og tilmeld dig på få minutter.
         </p>
-        <Link className="hero-link" to="/events">
+        <Link className={styles.heroLink} to="/events">
           Se kommende events →
         </Link>
       </header>
 
-      <main className="home-sections">
-        <section className="section-heading">
+      <main className={styles.homeSections}>
+        <section className={styles.sectionHeading}>
           <div>
             <p className="eyebrow dark">Det sker snart</p>
             <h2>Udvalgte events</h2>
           </div>
-          <Link className="card-link" to="/events">
+          <Link className={cardStyles.cardLink} to="/events">
             Se alle events →
           </Link>
         </section>
@@ -92,20 +94,20 @@ export default function HomePage() {
           (featuredEvents.length === 0 ? (
             <StatusMessage>Ingen events at vise endnu.</StatusMessage>
           ) : (
-            <section className="event-grid">
+            <section className={styles.eventGrid}>
               {featuredEvents.map((event) => (
-                <article className="event-card" key={event.id}>
+                <article className={cardStyles.eventCard} key={event.id}>
                   <img src={event.image} alt={event.title} loading="lazy" />
-                  <div className="event-card-content">
-                    <p className="event-category">{event.category}</p>
+                  <div className={cardStyles.eventCardContent}>
+                    <p className={cardStyles.eventCategory}>{event.category}</p>
                     <h3>{event.title}</h3>
                     <p>{event.summary}</p>
-                    <div className="event-meta">
+                    <div className={cardStyles.eventMeta}>
                       <span>{formatEventDate(event.date)}</span>
                       <span className="meta-divider" aria-hidden="true"></span>
                       <span>{event.venue.name}</span>
                     </div>
-                    <Link className="card-link" to={`/events/${event.id}`}>
+                    <Link className={cardStyles.cardLink} to={`/events/${event.id}`}>
                       Læs mere
                     </Link>
                   </div>
@@ -114,13 +116,13 @@ export default function HomePage() {
             </section>
           ))}
 
-        <section className="venues-teaser">
-          <div className="section-heading">
+        <section className={styles.venuesTeaser}>
+          <div className={styles.sectionHeading}>
             <div>
               <p className="eyebrow">Hvor det sker</p>
               <h2>Udforsk stederne</h2>
             </div>
-            <Link className="hero-link" to="/steder">
+            <Link className={styles.heroLink} to="/steder">
               Se alle steder →
             </Link>
           </div>
@@ -133,9 +135,9 @@ export default function HomePage() {
             (featuredVenues.length === 0 ? (
               <StatusMessage>Ingen steder at vise endnu.</StatusMessage>
             ) : (
-              <div className="venues-teaser-grid">
+              <div className={styles.venuesTeaserGrid}>
                 {featuredVenues.map((venue) => (
-                  <article className="venues-teaser-card" key={venue.id}>
+                  <article className={styles.venuesTeaserCard} key={venue.id}>
                     <h3>{venue.name}</h3>
                     <p>
                       {venue.address}, {venue.postalCode} {venue.city}
@@ -146,7 +148,7 @@ export default function HomePage() {
             ))}
         </section>
 
-        <section className="about-teaser">
+        <section className={styles.aboutTeaser}>
           <p className="eyebrow dark">Idéen</p>
           <h2>En enkel vej til det, der sker tæt på.</h2>
           <p>
@@ -158,7 +160,7 @@ export default function HomePage() {
           </Link>
         </section>
 
-        <section className="organizer-cta">
+        <section className={styles.organizerCta}>
           <div>
             <h2>Er du arrangør?</h2>
             <p>Del dit event med et nysgerrigt publikum, og få overblik over dem, der tilmelder sig.</p>

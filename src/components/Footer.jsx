@@ -1,21 +1,22 @@
 import { Link } from "react-router";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="footer-top">
-        <div className="footer-intro">
-          <p className="footer-brand">
+    <footer className={styles.siteFooter}>
+      <div className={styles.footerTop}>
+        <div className={styles.footerIntro}>
+          <p className={styles.footerBrand}>
             <span>mellem</span>
             <span className="brand-gap" aria-hidden="true"></span>
             <span>rum</span>
           </p>
           <p>Udvalgte kulturoplevelser og nye perspektiver på Aarhus.</p>
         </div>
-        <nav className="footer-links" aria-label="Footer">
-          <div className="footer-link-group">
-            <h2 className="footer-heading">Udforsk</h2>
-            <div className="footer-link-row">
+        <nav className={styles.footerLinks} aria-label="Footer">
+          <div className={styles.footerLinkGroup}>
+            <h2 className={styles.footerHeading}>Udforsk</h2>
+            <div className={styles.footerLinkRow}>
               <Link to="/events">Events</Link>
               <span className="nav-divider" aria-hidden="true"></span>
               <Link to="/steder">Steder</Link>
@@ -23,9 +24,9 @@ export default function Footer() {
               <Link to="/om">Om Mellemrum</Link>
             </div>
           </div>
-          <div className="footer-link-group">
-            <h2 className="footer-heading">For arrangører</h2>
-            <div className="footer-link-row">
+          <div className={styles.footerLinkGroup}>
+            <h2 className={styles.footerHeading}>For arrangører</h2>
+            <div className={styles.footerLinkRow}>
               <Link to="/tilmeldinger">Se tilmeldinger</Link>
               <span className="nav-divider" aria-hidden="true"></span>
               <Link to="/kontakt">Kontakt os</Link>
@@ -33,8 +34,8 @@ export default function Footer() {
           </div>
         </nav>
       </div>
-      <div className="footer-bottom">
-        <p className="footer-meta">© {new Date().getFullYear()} Mellemrum</p>
+      <div className={styles.footerBottom}>
+        <p>© {new Date().getFullYear()} Mellemrum</p>
         <p>Aarhus, Danmark</p>
       </div>
     </footer>

@@ -1,0 +1,23 @@
+.message {
+  background: var(--cream);
+  padding: 1rem;
+}
+
+.messageError {
+  background: rgba(255, 120, 90, 0.14);
+  color: #a5412c;
+}
+
+.formMessage {
+  background: rgba(255, 255, 255, 0.55);
+  margin: 0.5rem 0 0;
+  padding: 0.8rem;
+}
+
+.formMessageError {
+  color: #a5412c;
+}
+
+.formMessageSuccess {
+  color: var(--green);
+}

@@ -1,0 +1,94 @@
+.adminHeader {
+  background: var(--green);
+  color: white;
+  padding: 5rem var(--content-edge);
+}
+
+.adminHeader h1 {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.logoutButton {
+  background: var(--lime);
+  border: 0;
+  border-radius: 999px;
+  color: var(--green);
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+}
+
+.registrationTableWrapper {
+  overflow-x: auto;
+}
+
+.registrationList {
+  background: white;
+  border: 1px solid var(--line);
+  border-collapse: collapse;
+  border-radius: 14px;
+  box-shadow: 0 8px 26px rgba(23, 32, 29, 0.05);
+  min-width: 640px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.registrationRow th,
+.registrationRow td {
+  border-bottom: 1px solid var(--line);
+  padding: 1rem 1.2rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.registrationRow:last-child td {
+  border-bottom: 0;
+}
+
+.registrationRow strong,
+.registrationRow small {
+  display: block;
+}
+
+.registrationRow small {
+  color: #65706c;
+  margin-top: 0.2rem;
+}
+
+.registrationLabels th {
+  background: var(--cream);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.registrationLabels th:nth-child(1) {
+  width: 30%;
+}
+
+.registrationLabels th:nth-child(2) {
+  width: 38%;
+}
+
+.registrationLabels th:nth-child(3) {
+  width: 18%;
+}
+
+.registrationLabels th:nth-child(4) {
+  width: 14%;
+}
+
+.status {
+  background: #dff3cc;
+  border-radius: 999px;
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 750;
+  padding: 0.35rem 0.6rem;
+  text-align: center;
+}

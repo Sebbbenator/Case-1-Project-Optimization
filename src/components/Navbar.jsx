@@ -1,14 +1,15 @@
 import { NavLink } from "react-router";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   return (
-    <nav className="site-nav">
-      <NavLink className="brand" to="/">
+    <nav className={styles.siteNav}>
+      <NavLink className={styles.brand} to="/">
         <span className="brand-word">mellem</span>
         <span className="brand-gap" aria-hidden="true"></span>
         <span className="brand-word">rum</span>
       </NavLink>
-      <div className="nav-links">
+      <div className={styles.navLinks}>
         <NavLink to="/events">Events</NavLink>
         <span className="nav-divider" aria-hidden="true"></span>
         <NavLink to="/steder">Steder</NavLink>

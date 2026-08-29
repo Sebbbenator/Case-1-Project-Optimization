@@ -1,0 +1,145 @@
+.eventPage {
+  max-width: 1280px;
+}
+
+.eventHeroPhoto {
+  align-items: flex-start;
+  background-color: var(--green);
+  background-position: center;
+  background-size: cover;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 56vh;
+  padding: 2.25rem var(--content-edge) 3.5rem;
+  position: relative;
+}
+
+.eventHeroPhoto::before {
+  background: linear-gradient(to top, rgba(12, 42, 34, 0.95) 12%, rgba(12, 42, 34, 0.1) 65%, rgba(12, 42, 34, 0.55) 100%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.eventHeroContent {
+  position: relative;
+  z-index: 1;
+}
+
+.backLink {
+  background: rgba(15, 42, 35, 0.55);
+  border-radius: 999px;
+  color: rgba(245, 242, 234, 0.92);
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  left: var(--content-edge);
+  padding: 0.6rem 1.1rem;
+  position: absolute;
+  top: 2.25rem;
+  z-index: 1;
+}
+
+.eventHeroContent :global(.eyebrow) {
+  background: var(--lime);
+  border-radius: 999px;
+  color: var(--green);
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+}
+
+.eventHeroContent h1 {
+  color: white;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  margin: 1.25rem 0 0;
+  max-width: 20ch;
+}
+
+.eventInfoRow {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 26px rgba(23, 32, 29, 0.06);
+  display: flex;
+  margin: -3rem 0 2.5rem;
+  padding: 2rem 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.eventInfoRow > div {
+  flex: 1;
+}
+
+.infoDivider {
+  background: var(--lime);
+  flex-shrink: 0;
+  margin: 0 2rem;
+  width: 2px;
+}
+
+.infoLabel {
+  color: #a5412c;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.infoValue {
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.infoLink {
+  color: var(--green);
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.eventBody {
+  display: grid;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  max-width: 760px;
+}
+
+.eventBody p:not(.lead) {
+  color: #3a4740;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.lead {
+  color: var(--ink) !important;
+  font-size: clamp(1.25rem, 2vw, 1.7rem) !important;
+}
+
+@media (max-width: 620px) {
+  .eventInfoRow {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .infoDivider {
+    display: none;
+  }
+
+  .eventInfoRow > div {
+    margin-bottom: 1.25rem;
+  }
+
+  .eventInfoRow > div:last-child {
+    margin-bottom: 0;
+  }
+}

@@ -5,6 +5,7 @@ import { formatShortDate } from "../utils/formatDate";
 import { supabaseAuth } from "../lib/supabaseAuthClient";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import styles from "../styles/shared/Admin.module.css";
 
 export default function RegistrationsPage() {
   const navigate = useNavigate();
@@ -37,11 +38,11 @@ export default function RegistrationsPage() {
 
   return (
     <>
-      <header className="admin-header">
+      <header className={styles.adminHeader}>
         <p className="eyebrow">Internt overblik</p>
         <h1>Tilmeldinger</h1>
         <p>{registrations.length} tilmeldinger i alt</p>
-        <button type="button" className="logout-button" onClick={handleLogout}>
+        <button type="button" className={styles.logoutButton} onClick={handleLogout}>
           Log ud
         </button>
       </header>
@@ -54,10 +55,10 @@ export default function RegistrationsPage() {
             {registrations.length === 0 ? (
               <StatusMessage>Ingen tilmeldinger endnu.</StatusMessage>
             ) : (
-              <div className="registration-table-wrapper">
-                <table className="registration-list">
+              <div className={styles.registrationTableWrapper}>
+                <table className={styles.registrationList}>
                   <thead>
-                    <tr className="registration-row registration-labels">
+                    <tr className={`${styles.registrationRow} ${styles.registrationLabels}`}>
                       <th scope="col">Navn</th>
                       <th scope="col">Event</th>
                       <th scope="col">Dato</th>
@@ -66,7 +67,7 @@ export default function RegistrationsPage() {
                   </thead>
                   <tbody>
                     {registrations.map((registration) => (
-                      <tr className="registration-row" key={registration.id}>
+                      <tr className={styles.registrationRow} key={registration.id}>
                         <td>
                           <strong>{registration.name}</strong>
                           <small>{registration.email}</small>
@@ -74,7 +75,7 @@ export default function RegistrationsPage() {
                         <td>{registration.eventTitle}</td>
                         <td>{formatShortDate(registration.eventDate)}</td>
                         <td>
-                          <span className="status">{registration.status}</span>
+                          <span className={styles.status}>{registration.status}</span>
                         </td>
                       </tr>
                     ))}

@@ -4,6 +4,7 @@ import * as venuesService from "../services/venuesService";
 import { formatEventDate } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import styles from "./VenuesPage.module.css";
 
 export default function VenuesPage() {
   const [venues, setVenues] = useState([]);
@@ -31,7 +32,7 @@ export default function VenuesPage() {
   return (
     <>
       <header
-        className="venues-header"
+        className={styles.venuesHeader}
         style={{
           backgroundImage:
             "url(https://images.unsplash.com/photo-1595146463222-19603449c6af?q=80&w=3872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)"
@@ -51,20 +52,20 @@ export default function VenuesPage() {
           (venues.length === 0 ? (
             <StatusMessage>Ingen steder fundet.</StatusMessage>
           ) : (
-            <section className="venue-grid">
+            <section className={styles.venueGrid}>
               {venues.map((venue) => (
-                <article className="venue-card" key={venue.id}>
+                <article className={styles.venueCard} key={venue.id}>
                   <h2>{venue.name}</h2>
-                  <p className="venue-address">
+                  <p className={styles.venueAddress}>
                     {venue.address}, {venue.postalCode} {venue.city}
                   </p>
                   {venue.website && (
-                    <a className="venue-website" href={venue.website}>
+                    <a className={styles.venueWebsite} href={venue.website}>
                       Besøg hjemmeside
                     </a>
                   )}
                   {venue.events.length > 0 && (
-                    <ul className="venue-event-list">
+                    <ul className={styles.venueEventList}>
                       {venue.events.map((event) => (
                         <li key={event.id}>
                           <Link to={`/events/${event.id}`}>{event.title}</Link>
