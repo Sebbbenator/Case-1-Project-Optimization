@@ -4,10 +4,13 @@ import * as eventsService from "../services/eventsService";
 import { formatEventDate } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./EventsPage.module.css";
 import cardStyles from "../styles/shared/EventCard.module.css";
 
 export default function EventsPage() {
+  usePageTitle("Kommende events | Mellemrum");
+
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");

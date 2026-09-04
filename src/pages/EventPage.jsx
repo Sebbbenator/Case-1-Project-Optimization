@@ -6,12 +6,14 @@ import { formatEventDateTime } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
 import NotFoundPage from "./NotFoundPage";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./EventPage.module.css";
 import panelStyles from "../styles/shared/SignupPanel.module.css";
 
 export default function EventPage() {
   const { eventId } = useParams();
   const [event, setEvent] = useState(null);
+  usePageTitle(event ? `${event.title} | Mellemrum` : "Mellemrum");
   const [isLoading, setIsLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const [loadErrorMessage, setLoadErrorMessage] = useState("");

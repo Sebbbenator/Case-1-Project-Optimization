@@ -1,8 +1,11 @@
 import { Link } from "react-router";
 import Footer from "../components/Footer";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./NotFoundPage.module.css";
 
 export default function NotFoundPage() {
+  usePageTitle("Side ikke fundet | Mellemrum");
+
   return (
     <>
       <header>

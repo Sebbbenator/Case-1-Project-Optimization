@@ -1,7 +1,10 @@
 import Footer from "../components/Footer";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./ContactPage.module.css";
 
 export default function ContactPage() {
+  usePageTitle("Kontakt | Mellemrum");
+
   return (
     <>
       <header className={styles.contactHeader}>

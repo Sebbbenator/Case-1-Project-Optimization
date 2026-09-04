@@ -5,9 +5,12 @@ import { formatShortDate } from "../utils/formatDate";
 import { supabaseAuth } from "../lib/supabaseAuthClient";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "../styles/shared/Admin.module.css";
 
 export default function RegistrationsPage() {
+  usePageTitle("Tilmeldinger | Mellemrum");
+
   const navigate = useNavigate();
   const [registrations, setRegistrations] = useState([]);
   const [isLoading, setIsLoading] = useState(true);

@@ -3,10 +3,13 @@ import { useNavigate } from "react-router";
 import { supabaseAuth } from "../lib/supabaseAuthClient";
 import StatusMessage from "../components/StatusMessage";
 import Footer from "../components/Footer";
+import usePageTitle from "../hooks/usePageTitle";
 import adminStyles from "../styles/shared/Admin.module.css";
 import panelStyles from "../styles/shared/SignupPanel.module.css";
 
 export default function LoginPage() {
+  usePageTitle("Log ind | Mellemrum");
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -4,9 +4,12 @@ import * as venuesService from "../services/venuesService";
 import { formatEventDate } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./VenuesPage.module.css";
 
 export default function VenuesPage() {
+  usePageTitle("Steder | Mellemrum");
+
   const [venues, setVenues] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");

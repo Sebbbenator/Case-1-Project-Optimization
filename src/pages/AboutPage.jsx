@@ -1,8 +1,11 @@
 import { Link } from "react-router";
 import Footer from "../components/Footer";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./AboutPage.module.css";
 
 export default function AboutPage() {
+  usePageTitle("Om Mellemrum");
+
   return (
     <>
       <header

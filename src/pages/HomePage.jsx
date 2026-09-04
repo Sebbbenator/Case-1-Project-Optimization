@@ -5,10 +5,13 @@ import * as venuesService from "../services/venuesService";
 import { formatEventDate } from "../utils/formatDate";
 import Footer from "../components/Footer";
 import StatusMessage from "../components/StatusMessage";
+import usePageTitle from "../hooks/usePageTitle";
 import styles from "./HomePage.module.css";
 import cardStyles from "../styles/shared/EventCard.module.css";
 
 export default function HomePage() {
+  usePageTitle("Mellemrum. | Find plads til noget nyt.");
+
   const [events, setEvents] = useState([]);
   const [isLoadingEvents, setIsLoadingEvents] = useState(true);
   const [eventsError, setEventsError] = useState("");
