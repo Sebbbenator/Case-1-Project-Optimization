@@ -18,6 +18,7 @@
 
 .eventHeroPhoto::before {
   background: linear-gradient(to top, rgba(var(--scrim), 0.95) 12%, rgba(var(--scrim), 0.1) 65%, rgba(var(--scrim), 0.55) 100%);
+  background-color: var(--photo-shade);
   content: "";
   inset: 0;
   position: absolute;

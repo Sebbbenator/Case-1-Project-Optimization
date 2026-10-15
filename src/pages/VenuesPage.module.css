@@ -9,6 +9,7 @@
 
 .venuesHeader::before {
   background: linear-gradient(160deg, rgba(15, 42, 35, 0.92) 0%, rgba(23, 63, 53, 0.85) 60%, rgba(29, 74, 62, 0.75) 100%);
+  background-color: var(--photo-shade);
   content: "";
   inset: 0;
   position: absolute;
