@@ -5,13 +5,14 @@
   background-size: cover;
   color: white;
   display: flex;
+  isolation: isolate;
   min-height: 68vh;
   padding: clamp(3rem, 6vw, 5rem) var(--content-edge) clamp(3.5rem, 7vw, 5.5rem);
   position: relative;
 }
 
 .aboutHeader::before {
-  background: linear-gradient(90deg, rgba(var(--scrim), 0.9) 0%, rgba(var(--scrim), 0.58) 58%, rgba(var(--scrim), 0.2) 100%);
+  background: linear-gradient(90deg, rgba(var(--scrim), 0.6) 0%, rgba(var(--scrim), 0.35) 58%, rgba(var(--scrim), 0.1) 100%);
   background-color: var(--photo-shade);
   content: "";
   inset: 0;

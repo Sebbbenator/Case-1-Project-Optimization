@@ -6,6 +6,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  isolation: isolate;
   justify-content: flex-end;
   min-height: 80vh;
   padding: clamp(5rem, 10vw, 9rem) var(--content-edge) clamp(3rem, 6vw, 5rem);
@@ -14,7 +15,7 @@
 }
 
 .hero::before {
-  background: linear-gradient(to top, rgba(var(--scrim), 0.95) 15%, rgba(var(--scrim), 0.75) 75%, rgba(var(--scrim), 0) 95%);
+  background: linear-gradient(to top, rgba(var(--scrim), 0.6) 15%, rgba(var(--scrim), 0.3) 70%, rgba(var(--scrim), 0) 95%);
   background-color: var(--photo-shade);
   content: "";
   inset: 0;
@@ -33,7 +34,7 @@
 .hero h1 {
   font-size: clamp(3.2rem, 8vw, 7.5rem);
   letter-spacing: -0.075em;
-  line-height: 1.1;
+  line-height: 1.25;
   margin: 0;
   max-width: 12ch;
 }

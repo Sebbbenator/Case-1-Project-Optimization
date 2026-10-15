@@ -13,7 +13,7 @@
   --rust: #a5412c;
   --scrim: 12, 42, 34;
   --hover-overlay: rgba(255, 255, 255, 0.1);
-  --photo-shade: rgba(var(--scrim), 0.2);
+  --photo-shade: rgba(var(--scrim), 0.25);
   --text-shadow: 0 2px 8px rgba(9, 26, 21, 0.5);
   --line: rgba(23, 32, 29, 0.18);
   --shadow: 0 18px 50px rgba(23, 32, 29, 0.09);
