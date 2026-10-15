@@ -168,7 +168,12 @@ export default function EventPage() {
           <form onSubmit={handleSubmit}>
             <label>
               Navn
-              <input value={name} onChange={(inputEvent) => setName(inputEvent.target.value)} required />
+              <input
+                value={name}
+                onChange={(inputEvent) => setName(inputEvent.target.value)}
+                placeholder="Dit navn"
+                required
+              />
             </label>
             <label>
               E-mail
