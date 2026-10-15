@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
+import ScrollToTop from "./components/ScrollToTop";
 import StatusMessage from "./components/StatusMessage";
 import HomePage from "./pages/HomePage";
 import EventsPage from "./pages/EventsPage";
@@ -17,6 +18,7 @@ const RegistrationsPage = lazy(() => import("./pages/RegistrationsPage"));
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Suspense fallback={<StatusMessage>Indlæser...</StatusMessage>}>
         <Routes>
