@@ -1,0 +1,19 @@
+name: Supabase keep alive
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    environment: github-pages-deployment
+    runs-on: ubuntu-latest
+    env:
+      PING_TABLE: events
+    steps:
+      - name: Ping Supabase
+        run: |
+          curl --fail -sS -o /dev/null \
+            "${{ vars.VITE_SUPABASE_URL }}/$PING_TABLE?select=*&limit=1" \
+            -H "apikey: ${{ vars.VITE_SUPABASE_APIKEY }}"
